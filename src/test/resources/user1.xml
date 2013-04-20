@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns1:user xmlns:ns1="http://user.schema">
+    <firstName>Ben</firstName>
+    <lastName>Day</lastName>
+    <userName>ben__day</userName>
+</ns1:user>
