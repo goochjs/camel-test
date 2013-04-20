@@ -1,3 +1,9 @@
+/*
+ * Copyright (C) 2013 Jeremy Gooch <http://www.linkedin.com/in/jeremygooch/>
+ *
+ * The licence covering the contents of this file is described in the file LICENCE.txt,
+ * which should have been included as part of the distribution containing this file.
+ */
 package org.goochjs.cameltest;
 
 import javax.ws.rs.DefaultValue;

@@ -20,10 +20,13 @@ Output in the console.
 
 The following is needed to run this
 
-  features:addUrl mvn:org.apache.activemq/activemq-karaf/5.6.0/xml/features
-  features:install activemq-blueprint activemq-spring activemq-camel camel-protobuf
-  activemq:create-broker
-
-  install mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.protobuf-java/2.4.1_1
+  ServiceMix 4.5.1
+  
+  install mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.protobuf-java/2.4.1_1  
+  install mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aspectj/1.6.8_2
+  install mvn:org.codehaus.jackson/jackson-xc/1.9.7
+  install mvn:org.codehaus.jackson/jackson-jaxrs/1.9.7
+  install mvn:org.codehaus.jackson/jackson-core-asl/1.9.7
+  install mvn:org.codehaus.jackson/jackson-mapper-asl/1.9.7
   install mvn:org.goochjs/camel-test/0.0.1-SNAPSHOT
   

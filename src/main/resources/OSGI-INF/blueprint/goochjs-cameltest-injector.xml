@@ -11,12 +11,18 @@
              http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd
              http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd
              ">
+	<!--
+		Copyright (C) 2013 Jeremy Gooch <http://www.linkedin.com/in/jeremygooch/>
 
-	<camelContext id="jellyfish-resources-injectTest" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
+		The licence covering the contents of this file is described in the file LICENCE.txt,
+ 		which should have been included as part of the distribution containing this file.
+ 	 -->
+
+	<camelContext id="goochjs-cameltest-injectTest" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
 
 		<route id="byuri">
-			<from uri="cxfrs://http://localhost:8890/rest?resourceClasses=org.jellyfish.integrationTest.InjectTest&amp;bindingStyle=SimpleConsumer" />
-			<log logName="Jellyfish" loggingLevel="INFO" message="Request received 1: ${body}" />
+			<from uri="cxfrs://http://localhost:8890/rest?resourceClasses=org.goochjs.cameltest.InjectTest&amp;bindingStyle=SimpleConsumer" />
+			<log logName="goochjs" loggingLevel="INFO" message="Request received 1: ${body}" />
 			<recipientList>
 				<simple>direct:${header.operationName}</simple>
 			</recipientList>
@@ -24,10 +30,10 @@
 
 		<route id="injectTest-rsp">
 			<from uri="direct:newCustomer" />
-			<log logName="Jellyfish" loggingLevel="INFO" message="Request: type=${header.type}, active=${header.active}, customerData=${body}" />
+			<log logName="goochjs" loggingLevel="INFO" message="Request: type=${header.type}, active=${header.active}, customerData=${body}" />
 			<!--   <to uri="bean:injectTest?method=process" /> -->
 		</route>
 	</camelContext>
 
-	<bean id="injectTest" class="org.jellyfish.integrationTest.InjectTest" />
+	<bean id="injectTest" class="org.goochjs.cameltest.InjectTest" />
 </blueprint>
