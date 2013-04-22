@@ -8,7 +8,7 @@ Exposes a RESTful API, connected to ActiveMQ
 
 The following URL and payload causes the exchange to happen.  
 
-  POST http://localhost:8892/rest/customers/gold?active=false
+    POST http://localhost:8892/rest/customers/gold?active=false
       <?xml version="1.0" encoding="UTF-8"?>
       <Customer>
         <name>Fred Bloggs</name>
@@ -30,5 +30,6 @@ Fire up **ServiceMix 4.5.1** and run the following commands into it:-
 
 
 For reference, the XSD (under resources) was converted into a Java class via the command:-
+
     xjc Customer.xsd -p org.goochjs.cameltest -d ..\java
   
