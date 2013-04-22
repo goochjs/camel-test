@@ -8,14 +8,14 @@ Exposes a RESTful API, connected to ActiveMQ
 
 The following URL and payload causes the exchange to happen.  
 
-POST http://localhost:8890/rest/customers/{type}
+POST http://localhost:8892/rest/customers/gold?active=false
   <?xml version="1.0" encoding="UTF-8"?>
   <Customer>
     <name>Fred Bloggs</name>
     <id>123456</id>
   </Customer>
 
-Output in the console.
+Output in the log file.
 
 
 The following is needed to run this
@@ -29,4 +29,9 @@ The following is needed to run this
   install mvn:org.codehaus.jackson/jackson-core-asl/1.9.7
   install mvn:org.codehaus.jackson/jackson-mapper-asl/1.9.7
   install mvn:org.goochjs/camel-test/0.0.1-SNAPSHOT
+  dev:restart
+
+
+For reference, the XSD (under resources) was converted into a Java class via the command:-
+  xjc Customer.xsd -p org.goochjs.cameltest -d ..\java
   

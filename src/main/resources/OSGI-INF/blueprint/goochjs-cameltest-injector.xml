@@ -18,22 +18,14 @@
  		which should have been included as part of the distribution containing this file.
  	 -->
 
-	<camelContext id="goochjs-cameltest-injectTest" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
+	<camelContext id="goochjs-cameltest-customer" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
 
-		<route id="byuri">
-			<from uri="cxfrs://http://localhost:8890/rest?resourceClasses=org.goochjs.cameltest.InjectTest&amp;bindingStyle=SimpleConsumer" />
+		<route id="jetty">
+			<from uri="jetty:http://0.0.0.0:8892/rest?matchOnUriPrefix=true" />
 			<log logName="goochjs" loggingLevel="INFO" message="Request received 1: ${body}" />
-			<recipientList>
-				<simple>direct:${header.operationName}</simple>
-			</recipientList>
-		</route>
-
-		<route id="injectTest-rsp">
-			<from uri="direct:newCustomer" />
-			<log logName="goochjs" loggingLevel="INFO" message="Request: type=${header.type}, active=${header.active}, customerData=${body}" />
-			<!--   <to uri="bean:injectTest?method=process" /> -->
+			<to uri="cxfbean:customerResource" />
 		</route>
 	</camelContext>
 
-	<bean id="injectTest" class="org.goochjs.cameltest.InjectTest" />
+	<bean id="customerResource" class="org.goochjs.cameltest.CustomerResourceImpl" />
 </blueprint>
