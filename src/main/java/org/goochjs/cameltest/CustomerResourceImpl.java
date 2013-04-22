@@ -30,7 +30,7 @@ public class CustomerResourceImpl {
 
 	@GET
 	@Path("/{type}")
-    public Response get2Customer(@PathParam("type") String type) {
+    public Response getCustomer(@PathParam("type") String type) {
 		Customer output = new Customer();
 		output.setId(987654);
 		output.setName("Willy Wonka");
