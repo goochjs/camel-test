@@ -21,10 +21,12 @@ import javax.ws.rs.core.Response;
 @Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 @Path("/customers")
 public class CustomerResourceImpl {
+	private static String eol = System.getProperty("line.separator");
 
 	@POST
 	@Path("/{type}")
-	public Response newCustomer(Customer customer, @PathParam("type") String type, @QueryParam("active") @DefaultValue("true") boolean active) {
+	public Response newCustomer(Customer payload, @PathParam("type") String type, @QueryParam("active") @DefaultValue("true") boolean active) {
+		System.out.println("Name = " + payload.getName() + eol);
 		return Response.ok(type).build();
     }
 

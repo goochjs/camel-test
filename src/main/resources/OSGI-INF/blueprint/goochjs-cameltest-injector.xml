@@ -19,8 +19,7 @@
  	 -->
 
 	<camelContext id="goochjs-cameltest-customer" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
-
-		<route id="jetty">
+		<route id="jetty" streamCache="true">
 			<from uri="jetty:http://0.0.0.0:8892/rest?matchOnUriPrefix=true" />
 			<log logName="goochjs" loggingLevel="INFO" message="Request received 1: ${body}" />
 			<to uri="cxfbean:customerResource" />
